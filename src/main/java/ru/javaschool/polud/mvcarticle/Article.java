@@ -11,6 +11,9 @@ public class Article {
         this.articleText = articleText;
     }
 
+    public Article() {
+    }
+
     public int getId() {
         return id;
     }
