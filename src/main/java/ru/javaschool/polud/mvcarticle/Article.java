@@ -1,12 +1,18 @@
 package ru.javaschool.polud.mvcarticle;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Article {
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String articleHeader;
     private String articleText;
 
-    public Article(int id, String articleHeader, String articleText) {
-        this.id = id;
+    public Article( String articleHeader, String articleText) {
         this.articleHeader = articleHeader;
         this.articleText = articleText;
     }
@@ -14,11 +20,11 @@ public class Article {
     public Article() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
