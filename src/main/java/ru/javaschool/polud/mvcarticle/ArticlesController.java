@@ -10,13 +10,16 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class ArticlesController {
     UnzipService unzipService;
+    ArticleRepository articleRepository;
 
-    public ArticlesController(UnzipService unzipService) {
+    public ArticlesController(UnzipService unzipService, ArticleRepository articleRepository) {
         this.unzipService = unzipService;
+        this.articleRepository = articleRepository;
     }
 
     @GetMapping("/")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(/*@RequestParam(name="name", required=false, defaultValue="No articles")*/ String name, Model model) {
+        String header = articleRepository.findById(1L);
         model.addAttribute("name", name);
         return "article";
     }
