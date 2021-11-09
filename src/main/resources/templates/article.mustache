@@ -1,17 +1,26 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Upload your article</title>
 <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
 </head>
 <body>
-<div>Article</div>
-{{#article}}
-<div>
-    <b>{{articleHeader}}</b>
-    <span>{{articleText}}</span>
 
+<div>{{message}}</div>
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/article">
+        <table>
+            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        </table>
+    </form>
 </div>
-{{/article}}
+<!--{{#article}}-->
+<!--<div>-->
+<!--    <b>{{articleHeader}}</b>-->
+<!--    <span>{{articleText}}</span>-->
+
+<!--</div>-->
+<!--{{/article}}-->
 </body>
 </html>
