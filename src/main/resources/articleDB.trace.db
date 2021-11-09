@@ -1,0 +1,8 @@
+2021-11-09 19:51:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ARTICLE" не найдена
+Table "ARTICLE" not found; SQL statement:
+select article0_.id as id1_0_, article0_.article_header as article_2_0_, article0_.article_text as article_3_0_ from article article0_ [42102-200]
+2021-11-09 19:52:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ARTICLE" не найдена
+Table "ARTICLE" not found; SQL statement:
+select article0_.id as id1_0_, article0_.article_header as article_2_0_, article0_.article_text as article_3_0_ from article article0_ [42102-200]
