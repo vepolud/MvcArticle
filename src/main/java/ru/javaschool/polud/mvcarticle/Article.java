@@ -1,5 +1,9 @@
 package ru.javaschool.polud.mvcarticle;
 
+import com.sun.istack.NotNull;
+import sun.security.util.Length;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,6 +14,8 @@ public class Article {
     @GeneratedValue
     private Long id;
     private String articleHeader;
+    @NotNull
+    @Column(columnDefinition = "TEXT")
     private String articleText;
 
     public Article( String articleHeader, String articleText) {
