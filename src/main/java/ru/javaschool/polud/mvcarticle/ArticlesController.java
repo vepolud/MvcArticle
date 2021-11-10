@@ -27,14 +27,7 @@ public class ArticlesController {
     }
 
     @GetMapping("/article")
-    public String newArticle(
-//            @RequestParam(name = "id", required = false, defaultValue = "1") String id,
-            Map<String, Object> model) {
-        System.out.println("--------------------/article is running");
-//        Article article = articleRepository.findById(Long.valueOf(id)).orElse(null);
-
-
-//        model.addAttribute("article", article);
+    public String newArticle(Map<String, Object> model) {
         message = "Please use form to upload your article";
         model.put("message", message);
         return "article";

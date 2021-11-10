@@ -1,21 +1,14 @@
 <!--<!DOCTYPE HTML>-->
 <html lang="en">
-<!--<head>-->
-<!--    <title>Getting Started: Serving Web Content</title>-->
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
-<!--</head>-->
-<body>
 
-<!--<p th:text="'Hello, ' + ${name} + '!'" />-->
+<body>
 <a href="/article">Please, upload article on this page</a>
 <div>Articles list</div>
-    {{#articles}}
+{{#articles}}
     <div>
-<!--        <a href="/article?id=2">{{id}}{{articleHeader}}</a>-->
         <h1>{{articleHeader}}</h1>
         <span>{{articleText}}</span>
-
     </div>
-    {{/articles}}
-    </body>
-    </html>
+{{/articles}}
+</body>
+</html>

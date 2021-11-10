@@ -2,7 +2,6 @@ package ru.javaschool.polud.mvcarticle;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
@@ -18,7 +17,7 @@ public class UnzipService {
 
     public String getArticle(MultipartFile file) {
 
-        if (file.isEmpty() || !file.getContentType().equals("application/x-zip-compressed")) {
+        if (file.isEmpty() || !"application/x-zip-compressed".equals(file.getContentType())) {
             return "Uploaded file is not a zip archive";
         }
 
@@ -39,11 +38,11 @@ public class UnzipService {
                 }
                 articleRepository.save(new Article(header, sb.toString()));
                 return "The file was successfully uploaded";
-            } else return "There are no article.TXT in uploaded zip archive";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return "It's ok";
+        return "There are no article.TXT in uploaded zip archive";
     }
 }
