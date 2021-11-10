@@ -10,8 +10,7 @@ import java.util.zip.ZipInputStream;
 
 @Component
 public class UnzipService {
-    final
-    ArticleRepository articleRepository;
+    final ArticleRepository articleRepository;
 
     public UnzipService(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;

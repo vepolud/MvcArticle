@@ -43,7 +43,6 @@ public class ArticlesController {
     @PostMapping("/article")
     public String uploadArticle(@RequestParam MultipartFile file, Map<String, String> model) {
         message = unzipService.getArticle(file);
-        System.out.println("-------------------------" + message);
         model.put("message", message);
         return "article";
     }
