@@ -18,9 +18,11 @@ public class UnzipService {
     }
 
     public String getArticle(MultipartFile file) {
+
         if (file.isEmpty() || !file.getContentType().equals("application/x-zip-compressed")) {
             return "Uploaded file is not a zip archive";
         }
+
         try (ZipInputStream zipInputStream = new ZipInputStream(file.getInputStream())) {
             ZipEntry zipEntry = zipInputStream.getNextEntry();
             if (zipEntry != null && zipEntry.getName().equals("article.TXT")) {
@@ -43,6 +45,6 @@ public class UnzipService {
             e.printStackTrace();
         }
 
-        return null;
+        return "It's ok";
     }
 }

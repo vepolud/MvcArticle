@@ -12,6 +12,7 @@ import java.util.Map;
 public class ArticlesController {
     UnzipService unzipService;
     ArticleRepository articleRepository;
+    String message;
 
     public ArticlesController(UnzipService unzipService, ArticleRepository articleRepository) {
         this.unzipService = unzipService;
@@ -25,29 +26,25 @@ public class ArticlesController {
         return "articles";
     }
 
-//    @GetMapping("/upload")
-//    public String greeting() {
-//
-//        return "upload";
-//    }
-
     @GetMapping("/article")
     public String newArticle(
 //            @RequestParam(name = "id", required = false, defaultValue = "1") String id,
-            Map<String, String> model) {
-
+            Map<String, Object> model) {
+        System.out.println("--------------------/article is running");
 //        Article article = articleRepository.findById(Long.valueOf(id)).orElse(null);
 
+
 //        model.addAttribute("article", article);
-        model.put("message", "Please use form to upload your article");
+        message = "Please use form to upload your article";
+        model.put("message", message);
         return "article";
     }
 
-
     @PostMapping("/article")
     public String uploadArticle(@RequestParam MultipartFile file, Map<String, String> model) {
-        String message = unzipService.getArticle(file);
+        message = unzipService.getArticle(file);
+        System.out.println("-------------------------" + message);
         model.put("message", message);
-        return "/article";
+        return "article";
     }
 }
